@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { data } from './lib/store.ts'
+  import { data } from './lib/store'
 
   let size: number = 4
 </script>
@@ -28,7 +28,7 @@
       </div>
       <div class="max-w-md mx-auto relative aspect-square border border-primary mt-8">
         {#each {length: size ** 2 - 1} as _, i}
-          <div
+          <button
             on:click={() => data.move(i)}
             class="absolute aspect-square transition"
             style="
@@ -38,7 +38,7 @@
               transition-property: left, top;
             ">
             <div class="h-full flex justify-center items-center bg-primary border-base-100 border-2 rounded text-primary-content text-xl">{i + 1}</div>
-          </div>
+          </button>
         {/each}
       </div>
     {/if}
