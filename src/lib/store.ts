@@ -61,6 +61,7 @@ const createData = () => {
     subscribe,
     init: (size: number) => set(init(size)),
     move: (i: number) => update(data => move(data, i)),
+    reset: () => set([]),
   }
 }
 
