@@ -6,10 +6,19 @@ const createData = () => {
   const { subscribe, set, update } = writable<Data>([])
 
   const init = (size: number) => {
-    const data = []
+    let data: Data = []
     for (let y = 0; y < size; y++) {
       for (let x = 0; x < size; x++) {
         data.push([x, y])
+      }
+    }
+
+    let count: number = 0
+    while (count < 50) {
+      const rnd = Math.floor(Math.random() * data.length)
+      if (data[rnd][0] == data[data.length - 1][0] || data[rnd][1] == data[data.length - 1][1]) {
+        data = move(data, rnd)
+        count++
       }
     }
     return data
