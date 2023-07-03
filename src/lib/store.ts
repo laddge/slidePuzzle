@@ -23,12 +23,12 @@ const createData = () => {
       if (target[1] < empty[1]) {
         for (let y = empty[1] - 1; y >= target[1]; y--) {
           empty[1] = y
-          data[data.indexOf([x, y])][1] = y + 1
+          data[data.findIndex(el => JSON.stringify(el) == JSON.stringify([x, y]))][1] = y + 1
         }
       } else if (empty[1] < target[1]) {
         for (let y = empty[1] + 1; y <= target[1]; y++) {
           empty[1] = y
-          data[data.indexOf([x, y])][1] = y - 1
+          data[data.findIndex(el => JSON.stringify(el) == JSON.stringify([x, y]))][1] = y - 1
         }
       }
     } else if (target[1] == empty[1]) {
@@ -36,12 +36,12 @@ const createData = () => {
       if (target[0] < empty[0]) {
         for (let x = empty[0] - 1; x >= target[0]; x--) {
           empty[0] = x
-          data[data.indexOf([x, y])][0] = x + 1
+          data[data.findIndex(el => JSON.stringify(el) == JSON.stringify([x, y]))][0] = x + 1
         }
       } else if (empty[0] < target[0]) {
         for (let x = empty[0] + 1; x <= target[0]; x++) {
           empty[0] = x
-          data[data.indexOf([x, y])][0] = x - 1
+          data[data.findIndex(el => JSON.stringify(el) == JSON.stringify([x, y]))][0] = x - 1
         }
       }
     }
